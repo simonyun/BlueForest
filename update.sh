@@ -1,11 +1,10 @@
 #/bin/sh
-for version in "11" "10"
+for idea_dir in "IdeaIC11" "IntelliJIdea10CE"
 do
-  dir="`echo ~/Library/Preferences/IntelliJIdea$version/colors`"
+  dir="`echo ~/Library/Preferences/$idea_dir/colors`"
   if [ -e "$dir" ]
   then
     cp $dir/BlueForest.xml .
     break
   fi
 done
-

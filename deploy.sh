@@ -9,4 +9,3 @@ do
   fi
   echo "IntelliJ directory was not found"
 done
-
