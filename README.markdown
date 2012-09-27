@@ -3,6 +3,7 @@
 Currently _BlueForest_ provides matching colors for these languages/file types:
 
 * Actionscript
+* Android Logcat
 * Bash (the _BashSupport_ plugin)
 * Buildout Config files
 * Clojure
@@ -13,6 +14,7 @@ Currently _BlueForest_ provides matching colors for these languages/file types:
 * Groovy
 * GQL
 * Haml
+* Haxe
 * HTML
 * Java
 * JavaScript
@@ -42,7 +44,7 @@ A screenshot for _BlueForest_ colors for Scala is available [here][1]
 ### Installation
 
 Copy the `BlueForest.xml` file into the `/colors` directory underneath your IDEA installation folder.
-If you are on OSX you can also clone this git repository into a directory of your choice and use the `deploy.sh` script to install _BlueForest_ and the `update.sh` script to copy back changes you made in IDEA.
+If you are on OSX/linux or using cygwin on Windows, you can also clone this git repository into a directory of your choice and use the `deploy.sh` script to install _BlueForest_ and the `update.sh` script to copy back changes you made in IDEA.
 
 After you have installed the color scheme restart IDEA and select _BlueForest_ in _Preferences/Editor/Colors&Fonts_.
 
