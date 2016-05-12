@@ -3,7 +3,7 @@
   <option name="EDITOR_FONT_SIZE" value="12" />
   <option name="CONSOLE_FONT_NAME" value="Menlo" />
   <option name="CONSOLE_FONT_SIZE" value="13" />
-  <option name="EDITOR_FONT_NAME" value="Monaco" />
+  <option name="EDITOR_FONT_NAME" value="Source Code Pro" />
   <colors>
     <option name="ADDED_LINES_COLOR" value="8080" />
     <option name="ANNOTATIONS_COLOR" value="8080ff" />
