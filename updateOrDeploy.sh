@@ -1,8 +1,8 @@
 #!/bin/bash
 # updateOrDeploy.sh - updates or deploys the BlueForest.xml.
 #
-# Copies the BlueForest.xml from/to the current users IntelliJ config 
-# colors directory. 
+# Copies the BlueForest.xml from/to the current users IntelliJ config
+# colors directory.
 #
 # Works for MacOSX, Linux and windows (using cygwin/mingw)
 #
@@ -23,10 +23,12 @@ if [ -d ~ ]
 then
     dirs+=" $HOME/.IntelliJIdea"
     dirs+=" $HOME/.IdeaIC"
+    dirs+=" $HOME/.IdeaIC14"
+    dirs+=" $HOME/.IdeaIC15"
 fi
 
 # cygwin locations
-if [ ! -z $USERPROFILE ] 
+if [ ! -z $USERPROFILE ]
 then
     dirs+=" $USERPROFILE/.IntelliJIdea"
     dirs+=" $USERPROFILE/.IdeaIC"
@@ -50,22 +52,29 @@ for dirName in  $dirs
 do
     typeset old_ifs=$IFS
     #IFS=$'\n'
-    typeset only_dir=${dirName%/*} 
+    typeset only_dir=${dirName%/*}
     typeset only_name=${dirName##*/}
-    if [[ -e "${only_dir}" ]] 
+    if [[ -e "${only_dir}" ]]
     then
-        for cfgDir in $(find ${only_dir}  -maxdepth 1 -type d -name "${only_name}[0-9]*")
+        for baseDir in $(find ${only_dir}  -maxdepth 1 -type d -name "${only_name}[0-9]*")
         do
-            configDir="${cfgDir}/config/colors"
-            dir="${cfgDir}/colors"
-            if [ -e "$configDir" ]
+            configDir="${baseDir}/config"
+            colorDir="${configDir}/colors"
+            dir="${baseDir}/colors"
+            if [ -e "$colorDir" ]
             then
-                echo $configDir
-                copy_color_file $configDir
+                echo $colorDir
+                copy_color_file $colorDir
             elif [ -e "$dir" ]
             then
                 echo $dir
                 copy_color_file $dir
+            elif [ -e "$configDir" ]
+            then
+                # creating new empty color directory
+                mkdir $colorDir
+                echo $colorDir
+                copy_color_file $colorDir
             fi
         done
     fi
@@ -78,4 +87,3 @@ then
     echo "IntelliJ directory was not found"
     exit 1
 fi
-
